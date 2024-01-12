@@ -108,7 +108,7 @@ const RandomCook = () => {
   };
 
   return (
-    <div className="mx-auto mt-8 p-6 bg-white rounded-md shadow-md">
+    <div className="max-w-7xl m-8 p-6 bg-white rounded-md shadow-md">
       <h2 className="text-2xl font-bold mb-4">Random Koch</h2>
       <div className="flex space-x-4">
         <button
