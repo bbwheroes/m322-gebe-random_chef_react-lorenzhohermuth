@@ -108,34 +108,56 @@ const RandomCook = () => {
   };
 
   return (
-    <div>
-      <h2>Random Koch</h2>
-      <button onClick={generateIngredients}>Zutaten generieren</button>
-      <button onClick={cookRandomDish}>Kochen</button>
-      <table>
+    <div className="mx-auto mt-8 p-6 bg-white rounded-md shadow-md">
+      <h2 className="text-2xl font-bold mb-4">Random Koch</h2>
+      <div className="flex space-x-4">
+        <button
+          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+          onClick={generateIngredients}
+        >
+          Zutaten generieren
+        </button>
+        <button
+          className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-green-300"
+          onClick={cookRandomDish}
+        >
+          Kochen
+        </button>
+      </div>
+
+      <table className="mt-4 w-full">
         <thead>
           <tr>
             {categories.map((category) => (
-              <th key={category}>{category}</th>
+              <th key={category} className="py-2 text-left">{category}</th>
             ))}
           </tr>
         </thead>
         <tbody>
           <tr>
             {categories.map((category) => (
-              <td key={category}>{ingredients[category]}</td>
+              <td key={category} className="py-2">{ingredients[category]}</td>
             ))}
           </tr>
         </tbody>
       </table>
+
       {randomDish.name && (
-        <div>
-          <h3>Name: {randomDish.name}</h3>
-          <p>Zutaten: {randomDish.ingredients.join(', ')}</p>
+        <div className="mt-4">
+          <h3 className="text-xl font-bold">Name: {randomDish.name}</h3>
+          <p className="mt-2">Zutaten: {randomDish.ingredients.join(', ')}</p>
         </div>
       )}
-      <button onClick={rateDish}>Bewerten</button>
-      {rating && <p>Bewertung: {rating > 0 ? "⭐️".repeat(rating) : "Keine Sterne"}</p>}
+
+      <div className="mt-4">
+        <button
+          className="bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600 focus:outline-none focus:ring focus:border-yellow-300"
+          onClick={rateDish}
+        >
+          Bewerten
+        </button>
+        {rating && <p className="mt-2">Bewertung: {rating > 0 ? "⭐️".repeat(rating) : "Keine Sterne"}</p>}
+      </div>
     </div>
   );
 };
